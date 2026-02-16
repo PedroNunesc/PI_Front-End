@@ -81,7 +81,7 @@ document.getElementById("btn-delete").addEventListener("click", async () => {
   if (!confirm("Tem certeza que deseja apagar este item?")) return;
 
   try {
-    await fetch(`hhttps://pi-back-end-oip6.onrender.com/api/item/${itemId}`, {
+    await fetch(`https://pi-back-end-oip6.onrender.com/api/item/${itemId}`, {
       method: "DELETE",
       headers: { Authorization: "Bearer " + token }
     });
@@ -91,4 +91,5 @@ document.getElementById("btn-delete").addEventListener("click", async () => {
     console.error(err);
     alert("Erro ao apagar item.");
   }
+
 });
