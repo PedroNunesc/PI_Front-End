@@ -174,18 +174,24 @@ body {
     font-size: 1.4rem;
   }
 
-  .card {
-    max-width: 90%;
-    padding: 18px;
-  }
-
-  .btn {
-    font-size: 15px;
-    padding: 12px;
-  }
-
   .input-group input {
     font-size: 14px;
     padding: 8px;
   }
+
+   body {
+    padding-bottom: 25px; 
+  }
+
+  .card {
+    margin: 20px 12px 30px 12px; 
+    padding-bottom: 22px;       
+  }
+
+  .btn {
+    padding: 16px;          
+    font-size: 16px;
+    margin-top: 14px;
+  }
+
 }
