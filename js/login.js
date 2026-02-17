@@ -1,4 +1,5 @@
 const loginButton = document.querySelector(".login-button");
+const statusMsg = document.getElementById("status-msg");
 
 loginButton.addEventListener("click", async () => {
   const email = document.getElementById("email").value;
@@ -8,6 +9,13 @@ loginButton.addEventListener("click", async () => {
     alert("Preencha email e senha");
     return;
   }
+
+  statusMsg.innerText = "Conectando ao servidor...";
+
+  const slowTimer = setTimeout(() => {
+    statusMsg.innerText =
+      "Servidor acordando 😴 Aguarde alguns segundos...";
+  }, 3000);
 
   try {
     const response = await fetch("https://pi-back-end-oip6.onrender.com/api/login", {
@@ -21,9 +29,12 @@ loginButton.addEventListener("click", async () => {
       })
     });
 
+    clearTimeout(slowTimer);
+
     const data = await response.json();
 
     if (!response.ok) {
+      statusMsg.innerText = "";
       alert(data.message || "Erro ao fazer login");
       return;
     }
@@ -39,17 +50,31 @@ loginButton.addEventListener("click", async () => {
     const user = await meResponse.json();
     localStorage.setItem("user", JSON.stringify(user));
 
+    statusMsg.innerText = "Login realizado!";
+
     window.location.href = "./html/homepage.html";
 
   } catch (error) {
+    clearTimeout(slowTimer);
     console.error(error);
+    statusMsg.innerText = "";
     alert("Erro de conexão com o servidor");
   }
 });
 
 document.getElementById("btn-demo").addEventListener("click", async () => {
+  statusMsg.innerText = "Conectando ao servidor...";
+
+  const slowTimer = setTimeout(() => {
+    statusMsg.innerText =
+      "Servidor acordando 😴 Aguarde alguns segundos...";
+  }, 3000);
+
   try {
     const res = await fetch("https://pi-back-end-oip6.onrender.com/api/auth/demo", { method: "POST" });
+
+    clearTimeout(slowTimer);
+
     if (!res.ok) throw new Error("Erro ao logar como visitante");
 
     const data = await res.json();
@@ -57,7 +82,11 @@ document.getElementById("btn-demo").addEventListener("click", async () => {
 
     window.location.href = "./html/homepage.html"; 
   } catch (err) {
+    clearTimeout(slowTimer);
     console.error(err);
+    statusMsg.innerText = "";
     alert("Não foi possível entrar como visitante.");
   }
 });
+
+fetch("https://pi-back-end-oip6.onrender.com/api/health").catch(() => {});
