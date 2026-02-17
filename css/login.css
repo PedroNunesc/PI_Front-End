@@ -19,9 +19,46 @@ body {
 
 .status {
   text-align: center;
-  margin-top: 10px;
-  color: #555;
-  font-size: 14px;
+  margin-top: 18px;
+  padding: 14px 18px;
+  border-radius: 14px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(10,111,181,0.12),
+    rgba(31,60,136,0.18)
+  );
+
+  border: 2px solid rgba(10,111,181,0.35);
+
+  color: #1f3c88;
+  font-size: 15px;
+  font-weight: 600;
+
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+
+  opacity: 0;
+  transform: translateY(-6px) scale(0.98);
+  transition: all 0.25s ease;
+}
+
+.status.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.status.loading::after {
+  content: "";
+  display: inline-block;
+  width: 22px;
+  animation: dots 1.4s infinite;
+}
+
+@keyframes dots {
+  0% { content: ""; }
+  33% { content: "."; }
+  66% { content: ".."; }
+  100% { content: "..."; }
 }
 
 .login-container {
@@ -215,4 +252,5 @@ body {
     .slogan {
         font-size: 24px;
     }
+
 }
