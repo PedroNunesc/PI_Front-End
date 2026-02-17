@@ -12,6 +12,8 @@ loginButton.addEventListener("click", async () => {
 
   statusMsg.innerText = "Conectando ao servidor...";
 
+  await new Promise(resolve => setTimeout(resolve, 2000));
+
   const slowTimer = setTimeout(() => {
     statusMsg.innerText =
       "Servidor acordando 😴 Aguarde alguns segundos...";
@@ -64,6 +66,8 @@ loginButton.addEventListener("click", async () => {
 
 document.getElementById("btn-demo").addEventListener("click", async () => {
   statusMsg.innerText = "Conectando ao servidor...";
+
+  await new Promise(resolve => setTimeout(resolve, 2000));
 
   const slowTimer = setTimeout(() => {
     statusMsg.innerText =
