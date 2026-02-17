@@ -1,4 +1,4 @@
-const loginButton = document.querySelector(".login-button");
+adiciona a esta pagina: const loginButton = document.querySelector(".login-button");
 const statusMsg = document.getElementById("status-msg");
 
 loginButton.addEventListener("click", async () => {
@@ -11,8 +11,6 @@ loginButton.addEventListener("click", async () => {
   }
 
   statusMsg.innerText = "Conectando ao servidor...";
-
-  await new Promise(resolve => setTimeout(resolve, 2000));
 
   const slowTimer = setTimeout(() => {
     statusMsg.innerText =
@@ -66,8 +64,6 @@ loginButton.addEventListener("click", async () => {
 
 document.getElementById("btn-demo").addEventListener("click", async () => {
   statusMsg.innerText = "Conectando ao servidor...";
-
-  await new Promise(resolve => setTimeout(resolve, 2000));
 
   const slowTimer = setTimeout(() => {
     statusMsg.innerText =
