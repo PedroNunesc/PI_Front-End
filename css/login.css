@@ -5,6 +5,13 @@
     font-family: Arial, sans-serif;
 }
 
+.status {
+  text-align: center;
+  margin-top: 10px;
+  color: #555;
+  font-size: 14px;
+}
+
 body {
     background-image: url("../assets/login-cadastro.jpg"); 
     background-size: cover;
@@ -208,4 +215,5 @@ body {
     .slogan {
         font-size: 24px;
     }
+
 }
