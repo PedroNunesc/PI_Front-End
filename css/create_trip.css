@@ -263,3 +263,22 @@ body {
     border-radius: 20px;
   }
 }
+
+@media (max-width: 480px) {
+
+  .card {
+    margin: 20px 12px 30px 12px; 
+    padding-bottom: 24px;       
+  }
+
+  .btn-primary {
+    margin-top: 18px;
+    padding: 16px;              
+    font-size: 16px;
+  }
+
+  body {
+    padding-bottom: 20px;       
+  }
+
+}
